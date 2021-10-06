@@ -1,0 +1,96 @@
+body{
+  width:60%;
+}
+
+h1{
+  font-size: 20px;
+  text-align: center;
+}
+
+.contact_form{
+  margin:0 auto;
+}
+tr{
+  vertical-align: top;
+  height:25px;
+}
+
+th{
+  text-align: left;
+  height:50px;
+  padding-right:30px;
+}
+
+td{
+  display: flex;
+  width: 100%;
+
+}
+.req{
+  color: red;
+}
+.fullname_input{
+  display: flex;
+  width:100%;
+}
+.exa{
+  display: box;
+  color:gray;
+  font-size:85%;
+  margin-top:3px;
+}
+table input{
+  height:20px;
+  
+}
+.input,
+.opinion_textarea,
+.fullname_input
+{
+  width: 100%;
+}
+.opinion_textarea{
+  height:100px;
+  max-height: 500px;
+}
+.firstname{
+  margin-left: 20px;
+}
+.lastname_input{
+  width:160px;
+}
+.firstname_input{
+  width: 100%;
+  margin-right: 0;
+}
+.fullname_input{
+  width: 100%;
+}
+
+.postcode_input_flex{
+  display: flex;
+}
+.gender_input{
+  display: flex;
+}
+
+.email_input,
+.postcode_input,
+.postcode_input_flex,
+.address_input,
+.building_name_input,
+.opinion_input{
+  width:100%;
+}
+.confirm{
+  text-align: center;
+}
+.btn_confirm{
+  color:white;
+  background-color: black;
+  text-align: center;
+  padding:5px 30px;
+  border-radius: 10%;
+  margin-top:30px;
+}
+
