@@ -101,9 +101,11 @@
     </table>
     <!--確認ボタン-->
     <div class="confirm">
-    </div>
-    <button name="send" type="submit" value="true">確定</button>
-    <button name="back" type="submit" value="true">修正する</button>
+      <button name="send" type="submit" value="true" class="btn_confirm">送信</button>
+    </div> 
+    <div class="edit"> 
+      <button name="back" type="submit" value="true" class="btn_edit">修正する</button>
+    </div>  
   </form>
 
 </body>

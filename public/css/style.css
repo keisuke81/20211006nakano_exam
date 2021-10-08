@@ -88,8 +88,10 @@ table input{
 }
 .confirm{
   text-align: center;
+  
 }
 .btn_confirm{
+  
   color:white;
   background-color: black;
   text-align: center;
@@ -104,4 +106,13 @@ table input{
 
 .edit{
   text-align: center;
+  margin-top:10px;
+}
+
+.btn_edit{
+  border:0;
+  background-color: transparent;
+  text-decoration: underline;
+  color:black;
+  padding-bottom:0;
 }
