@@ -10,7 +10,7 @@
 
 <body>
   <h1>お問い合わせ</h1>
-  <form action="/" method="post">
+  <form action="confirm" method="post">
     @csrf
     <table class="contact_form">
       <tr>
@@ -19,11 +19,11 @@
         <td>
           <div class="fullname_input">
             <div class="lastname">
-              <input type="text" name="lastname" class="lastname_input">
+              <input type="text" name="lastname" class="lastname_input" value="{{old('lastname')}}">
               <p class="exa">例)山田</p>
             </div>
             <div class="firstname">
-              <input type="text" name="firstname" class="firstname_input">
+              <input type="text" name="firstname" class="firstname_input" value="{{old('firstname')}}">
               <p class="exa">例)太郎</p>
             </div>
           </div>  
@@ -34,9 +34,15 @@
         <th>性別<span class="req">※</span></th>
         <td>
           <div class="gender_input">
-            <label><input type="radio" name="male">男性</label>
-            <label><input type="radio" name="female">女性</label>
-          </div>  
+            <div>
+              <input type="radio" id="male" name="gender" class="radio" value="男性" {{old('gender', '男性')=='男性' ? 'checked': ''}}>
+              <label for="male">男性</label>
+            </div>  
+            <div>
+              <input type="radio" id="female" name="gender" class="radio" value="女性" {{old('gender')=='女性' ?'checked':''}}>
+              <label for="female">女性</label>
+            </div>
+          </div>
         </td>
       </tr>
       <!--メールアドレス-->
@@ -44,7 +50,7 @@
         <th>メールアドレス<span class="req">※</span></th>
         <td>
           <div class="email_input">
-            <input type="text" name="email" class="input">
+            <input type="text" name="email" class="input" value= "{{old('email')}}">
             <p class="exa">例)test@example.com</p>
           </div>
         </td>
@@ -56,7 +62,7 @@
           <div class="postcode_input">
             <div class="postcode_input_flex">
               <span class="postcode_mark">〒</span>
-              <input type="text" name="postcode" class="input">
+              <input type="text" name="postcode" class="input" value="{{old('postcode')}}">
             </div>  
             <p class="exa">例)123−4567</p>
           </div>
@@ -67,7 +73,7 @@
         <th>住所<span class="req">※</span></th>
         <td>
           <div class="address_input">
-            <input type="text" name="address" class="input">
+            <input type="text" name="address" class="input" value="{{old('address')}}">
             <p class="exa">例)東京都渋谷区千駄ヶ谷1-2-3</p>
           </div>
         </td>
@@ -77,7 +83,7 @@
         <th>建物名</th>
         <td>
           <div class="building_name_input">
-            <input type="text" name="building_name" class="input">
+            <input type="text" name="building_name" class="input" value="{{old('building_name')}}">
             <p class="exa">例)千駄ヶ谷マンション101</p>
           </div>
         </td>
@@ -88,6 +94,7 @@
         <td>
           <div class="opinion_input">
             <textarea name="opinion" class="opinion_textarea">
+              {{old('opinion')}}
             </textarea>  
           </div>
         </td>

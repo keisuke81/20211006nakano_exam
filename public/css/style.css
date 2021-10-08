@@ -66,12 +66,16 @@ table input{
 .fullname_input{
   width: 100%;
 }
+.radio{
+  width:2em;
+  height:2em;
+}
 
 .postcode_input_flex{
   display: flex;
 }
-.gender_input{
-  display: flex;
+.radio{
+  vertical-align: middle;
 }
 
 .email_input,
@@ -94,3 +98,10 @@ table input{
   margin-top:30px;
 }
 
+.gender_input{
+  display: flex;
+}
+
+.edit{
+  text-align: center;
+}
