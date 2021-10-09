@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
   <title>Contact</title>
 </head>
 
@@ -28,7 +29,7 @@
               <p class="exa">例)太郎</p>
               <p class="error">{{$errors->first('firstname')}}</p>
             </div>
-          </div>  
+          </div>
         </td>
       </tr>
       <!--性別-->
@@ -39,7 +40,7 @@
             <div>
               <input type="radio" id="male" name="gender" class="radio" value="男性" {{old('gender', '男性')=='男性' ? 'checked': ''}}>
               <label for="male">男性</label>
-            </div>  
+            </div>
             <div>
               <input type="radio" id="female" name="gender" class="radio" value="女性" {{old('gender')=='女性' ?'checked':''}}>
               <label for="female">女性</label>
@@ -53,7 +54,7 @@
         <th>メールアドレス<span class="req">※</span></th>
         <td>
           <div class="email_input">
-            <input type="text" name="email" class="input" value= "{{old('email')}}">
+            <input type="text" name="email" class="input" value="{{old('email')}}">
             <p class="exa">例)test@example.com</p>
             <p class="error">{{$errors->first('email')}}</p>
           </div>
@@ -66,11 +67,11 @@
           <div class="postcode_input">
             <div class="postcode_input_flex">
               <span class="postcode_mark">〒</span>
-              <input type="text" name="postcode" class="input" value="{{old('postcode')}}">
-            </div>  
-            <p class="exa">例)123−4567</p>
-            <p class="error">{{$errors->first('postcode')}}</p>
-          </div>
+              <input type="text" name="postcode" class="input" value="{{old('postcode')}}" onkeyup="AjaxZip3.zip2addr(this,'','address','address');">
+            </div>
+            <p class=" exa">例)123−4567</p>
+              <p class="error">{{$errors->first('postcode')}}</p>
+            </div>
         </td>
       </tr>
       <!--住所-->
@@ -78,7 +79,7 @@
         <th>住所<span class="req">※</span></th>
         <td>
           <div class="address_input">
-            <input type="text" name="address" class="input" value="{{old('address')}}">
+            <input type="text" name="address" class="input" value="{{old('address')}}" >
             <p class="exa">例)東京都渋谷区千駄ヶ谷1-2-3</p>
             <p class="error">{{$errors->first('address')}}</p>
           </div>
@@ -100,8 +101,8 @@
         <td>
           <div class="opinion_input">
             <textarea name="opinion" class="opinion_textarea">
-              {{old('opinion')}}
-            </textarea>  
+            {{old('opinion')}}
+            </textarea>
             <p class="error">{{$errors->first('opinion')}}</p>
           </div>
         </td>
@@ -113,4 +114,5 @@
     </div>
   </form>
 </body>
+
 </html>
