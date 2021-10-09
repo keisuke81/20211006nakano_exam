@@ -19,11 +19,9 @@ class ContactController extends Controller
         $validated = $request->validated();
         $inputs = $request->all();
 
-        return view('/confirm',[
+        return view('/confirm', [
             'inputs' => $inputs,
         ])->with($validated);
-
-
     }
 
     public function send(Request $request)
@@ -31,7 +29,7 @@ class ContactController extends Controller
         if($request->get('back')){
             return redirect('/')->withInput();
         }
-        return('thanks');
+        return view('thanks');
     }
 
 }

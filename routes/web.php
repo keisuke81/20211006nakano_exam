@@ -18,5 +18,5 @@ Route::get('/', [ContactController::class,'index'])->name('contact.index');
 Route::post('/confirm',[ContactController::class,'confirm'])->name('contact.confirm');
 Route::get('/confirm', [ContactController::class, 'confirm']);
 Route::post('/thanks', [ContactController::class, 'send'])->name('contact.send');
-Route::get('/thanks',[ContactController::class,'send']);
+Route::get('/thanks',[ContactController::class,'send'])->name('contact.thanks');
 

@@ -11,6 +11,10 @@
 
 <body>
   <h1>お問い合わせ</h1>
+  @if($errors->any())
+   @foreach($errors->all() as $error)
+   @endforeach
+  @endif 
   <form action="confirm" method="post">
     @csrf
     <table class="contact_form">

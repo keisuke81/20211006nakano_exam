@@ -122,3 +122,21 @@ table input{
   color:red;
   margin-top:3px;
 }
+
+.thanks_message{
+  text-align: center;
+  margin-top:40%;
+}
+.toppage{
+  text-align: center;
+}
+
+.btn_toppage{
+  color:white;
+  background-color: black;
+  text-align: center;
+  padding:5px 30px;
+  border-radius: 10%;
+  margin-top:30px;
+
+}
