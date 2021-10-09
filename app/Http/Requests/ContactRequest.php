@@ -35,6 +35,11 @@ class ContactRequest extends FormRequest
         ];
     }
 
+    public function prepareForValidation()
+    {
+        $this->merge(['postcode' => mb_convert_kana($this->postcode, 'an')]);
+    }
+
     public function messages()
     {
         return[

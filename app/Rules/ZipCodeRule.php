@@ -23,6 +23,7 @@ class ZipCodeRule implements Rule
      * @param  mixed  $value
      * @return bool
      */
+
     public function passes($attribute, $value)
     {
         return preg_match('/\A\d{3}[-]\d{4}\z/', $value);
