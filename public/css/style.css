@@ -38,6 +38,7 @@ td{
   color:gray;
   font-size:85%;
   margin-top:3px;
+  margin-bottom:0;
 }
 table input{
   height:20px;
@@ -115,4 +116,9 @@ table input{
   text-decoration: underline;
   color:black;
   padding-bottom:0;
+}
+.error{
+  font-size:75%;
+  color:red;
+  margin-top:3px;
 }

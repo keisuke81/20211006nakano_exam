@@ -21,10 +21,12 @@
             <div class="lastname">
               <input type="text" name="lastname" class="lastname_input" value="{{old('lastname')}}">
               <p class="exa">例)山田</p>
+              <p class="error">{{$errors->first('lastname')}}</p>
             </div>
             <div class="firstname">
               <input type="text" name="firstname" class="firstname_input" value="{{old('firstname')}}">
               <p class="exa">例)太郎</p>
+              <p class="error">{{$errors->first('firstname')}}</p>
             </div>
           </div>  
         </td>
@@ -41,6 +43,7 @@
             <div>
               <input type="radio" id="female" name="gender" class="radio" value="女性" {{old('gender')=='女性' ?'checked':''}}>
               <label for="female">女性</label>
+              <p class="error">{{$errors->first('gender')}}</p>
             </div>
           </div>
         </td>
@@ -52,6 +55,7 @@
           <div class="email_input">
             <input type="text" name="email" class="input" value= "{{old('email')}}">
             <p class="exa">例)test@example.com</p>
+            <p class="error">{{$errors->first('email')}}</p>
           </div>
         </td>
       </tr>
@@ -65,6 +69,7 @@
               <input type="text" name="postcode" class="input" value="{{old('postcode')}}">
             </div>  
             <p class="exa">例)123−4567</p>
+            <p class="error">{{$errors->first('postcode')}}</p>
           </div>
         </td>
       </tr>
@@ -75,6 +80,7 @@
           <div class="address_input">
             <input type="text" name="address" class="input" value="{{old('address')}}">
             <p class="exa">例)東京都渋谷区千駄ヶ谷1-2-3</p>
+            <p class="error">{{$errors->first('address')}}</p>
           </div>
         </td>
       </tr>
@@ -96,6 +102,7 @@
             <textarea name="opinion" class="opinion_textarea">
               {{old('opinion')}}
             </textarea>  
+            <p class="error">{{$errors->first('opinion')}}</p>
           </div>
         </td>
       </tr>
@@ -104,8 +111,6 @@
     <div class="confirm">
       <input type="submit" value="確認" class="btn_confirm">
     </div>
-
   </form>
 </body>
-
 </html>

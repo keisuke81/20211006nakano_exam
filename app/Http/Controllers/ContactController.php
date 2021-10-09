@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
+use App\Rules\ZipCodeRule;
 
 class ContactController extends Controller
 {
@@ -12,13 +14,14 @@ class ContactController extends Controller
         return view('index');
     }
 
-    public function confirm(Request $request)
+    public function confirm(ContactRequest $request)
     {
+        $validated = $request->validated();
         $inputs = $request->all();
 
         return view('/confirm',[
             'inputs' => $inputs,
-        ]);
+        ])->with($validated);
 
 
     }
