@@ -10,7 +10,7 @@
 
 <body>
   <h1>内容確認</h1>
-  <form action="thanks" method="get">
+  <form action="thanks" method="post">
     @csrf
     <table class="contact_form">
       <tr>
@@ -18,9 +18,9 @@
         <th>お名前</th>
         <td>
           <div class="fullname_input">
-            <div class="lastname">
-              <p>{{$inputs['lastname']}}</p>
-              <input type="hidden" name="lastname" class="lastname_input" value="{{$inputs['lastname']}}">
+            <div class="fullname">
+              <p>{{$inputs['fullname']}}</p>
+              <input type="hidden" name="fullname" class="lastname_input" value="{{$inputs['fullname']}}">
             </div>
             <div class="firstname">
               <p>{{$inputs['firstname']}}</p>
@@ -101,11 +101,11 @@
     </table>
     <!--確認ボタン-->
     <div class="confirm">
-      <button name="send" type="submit" value="true" class="btn_confirm">送信</button>
-    </div> 
-    <div class="edit"> 
+      <button name="create" type="submit" value="true" class="btn_confirm">送信</button>
+    </div>
+    <div class="edit">
       <button name="back" type="submit" value="true" class="btn_edit">修正する</button>
-    </div>  
+    </div>
   </form>
 
 </body>

@@ -24,9 +24,9 @@
         <td>
           <div class="fullname_input">
             <div class="lastname">
-              <input type="text" name="lastname" class="lastname_input" value="{{old('lastname')}}">
+              <input type="text" name="fullname" class="lastname_input" value="{{old('fullname')}}">
               <p class="exa">例)山田</p>
-              <p class="error">{{$errors->first('lastname')}}</p>
+              <p class="error">{{$errors->first('fullname')}}</p>
             </div>
             <div class="firstname">
               <input type="text" name="firstname" class="firstname_input" value="{{old('firstname')}}">
@@ -42,11 +42,11 @@
         <td>
           <div class="gender_input">
             <div>
-              <input type="radio" id="male" name="gender" class="radio" value="男性" {{old('gender', '男性')=='男性' ? 'checked': ''}}>
+              <input type="radio" id="male" name="gender" class="radio" value="1" {{old('gender', '男性')=='男性' ? 'checked': ''}}>
               <label for="male">男性</label>
             </div>
             <div>
-              <input type="radio" id="female" name="gender" class="radio" value="女性" {{old('gender')=='女性' ?'checked':''}}>
+              <input type="radio" id="female" name="gender" class="radio" value="2" {{old('gender')=='女性' ?'checked':''}}>
               <label for="female">女性</label>
               <p class="error">{{$errors->first('gender')}}</p>
             </div>

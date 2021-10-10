@@ -6,6 +6,7 @@ use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use App\Rules\ZipCodeRule;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -24,12 +25,24 @@ class ContactController extends Controller
         ])->with($validated);
     }
 
-    public function send(Request $request)
+    public function create(ContactRequest $request)
     {
-        if($request->get('back')){
+        if ($request->get('back')) {
             return redirect('/')->withInput();
         }
-        return view('thanks');
-    }
 
+        $param=[
+            'fullname'=>$request->fullname,
+            'gender'=>$request->gender,
+            'email' =>$request->email,
+            'postcode' => $request->postcode,
+            'address' => $request->address,
+            'building_name' => $request->building_name,
+            'opinion' => $request->opinion,
+        ];
+
+        Contact::create($request->all());
+
+
+    }
 }
