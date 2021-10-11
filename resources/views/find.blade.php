@@ -45,36 +45,42 @@
   </div>
 
   </form>
-  <table>
-    <tr>
-      <th style="width:5%">ID</th>
-      <th style="width:25%">お名前</th>
-      <th style="width:5%">性別</th>
-      <th style="width:25%">メールアドレス</th>
-      <th style="width:40%">ご意見</th>
-    </tr>
-    @if(isset($items))
-    @foreach($items as $item)
-    <tr>
-      <td style="width:5%">{{$item->id}}</td>
-      <td style="width:25%">{{$item->fullname}}</td>
-      <td style="width:5%" class="gender">
-        <?php
-        if ($item->gender === 1) {
-          echo '男性';
-        } else {
-          echo '女性';
-        }
+  <div class="search_result">
+    <form action="find" method="post">
+      <table class="table">
+        <tr>
+          <th id="t_id" style="width:5%">ID</th>
+          <th id="t_fullname" style="width:20%">お名前</th>
+          <th id="t_gender" style="width:5%">性別</th>
+          <th id="t_email" style="width:20%">メールアドレス</th>
+          <th id="t_opinion" style="width:40%">ご意見</th>
+          <th id="t_delete" style="width:10%">削除</th>
+        </tr>
+        @if(isset($items))
+        @foreach($items as $item)
+        <tr>
+          <td id="t_id" style="width:5%">{{$item->id}}</td>
+          <td id="t_fullname" style="width:20%">{{$item->fullname}}</td>
+          <td id="t_gender" style="width:5%" class="gender">
+            <?php
+            if ($item->gender === 1) {
+              echo '男性';
+            } else {
+              echo '女性';
+            }
 
-        ?>
-      </td>
-      <td style="width:25%">{{$item->email}}</td>
-      <td class="text_overflow" style="width:40%">{{$item->opinion}}</td>
-    </tr>
-    @endforeach
-    @endif
-  </table>
+            ?>
+          </td>
+          <td id="t_email" style="width:20%">{{$item->email}}</td>
+          <td id="t_opinion" class="text_overflow" style="width:40%">{{$item->opinion}}</td>
+          <td id="t_delete" class="btn_delete" style="width:10%"><button>削除</button></td>
 
+        </tr>
+        @endforeach
+        @endif
+      </table>
+    </form>
+  </div>
 </body>
 
 </html>
@@ -122,17 +128,27 @@
     text-align: center;
   }
 
-  table {
+  .search_result {
+    width: 100%;
+  }
+
+  .table {
+    table-layout: fixed;
     width: 100%;
     font-size: 80%;
   }
 
-  th {
-    width: 50px;
+  th,
+  td {
+    width: 100%;
   }
 
   tr {
     display: flex;
+  }
+  td{
+    display: inline-block;
+    text-align: left;
   }
 
   .text_overflow {
@@ -142,5 +158,10 @@
     line-height: 1.0;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  .btn_delete{
+    display: inline-block;
+    text-align: left;
   }
 </style>
