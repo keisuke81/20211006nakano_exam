@@ -49,7 +49,7 @@ class ContactRequest extends FormRequest
             'postcode.required' =>'郵便番号を入力してください',
             'address.required' => '住所を入力してください',
             'opinion.required' => 'ご意見を入力してください',
-            'opinion.max:120' => '120文字以内で入力してください'
+            'opinion.max' => '120文字以内で入力してください'
         ];
     }
 }
