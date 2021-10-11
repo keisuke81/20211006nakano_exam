@@ -13,9 +13,8 @@
     @csrf
     <div class="name_gender_search">
       <label for="fullname">お名前</label>
-      <input type="search" name="fullname" value="">
+      <input type="text" name="fullname">
       <label for="gender">性別</label>
-      <input type="radio" name="gender" id="all" value="1 ||2" checked />全て
       <input type="radio" name="gender" id="male" value="1" />男性
       <input type="radio" name="gender" id="female" value="2" />女性
     </div>
@@ -28,7 +27,7 @@
 
     <div class="email_search">
       <label for="email">メールアドレス</label>
-      <input type="search" name="email" value="{{request('search')}}">
+      <input type="email" name="email">
     </div>
 
     <div class="btn_search">

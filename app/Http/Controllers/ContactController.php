@@ -66,7 +66,7 @@ class ContactController extends Controller
         $keyword_until    = $request->input('until');
 
         if(!empty($keyword_fullname)){
-            $query->where('fullname','like', '%' . $keyword_fullname . '%');
+            $query = Contact::where('fullname','like', "%{$keyword_fullname}%");
         }
         if(!empty($keyword_gender)){
             $query->where('gender', 'like', '%' . $keyword_gender . '%');
