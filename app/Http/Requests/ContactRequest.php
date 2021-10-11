@@ -26,7 +26,6 @@ class ContactRequest extends FormRequest
     {
         return [
             'fullname' => 'required',
-            'firstname' => 'required',
             'gender' => 'required',
             'email' => 'required | email',
             'postcode' => new ZipCodeRule(),
@@ -44,7 +43,6 @@ class ContactRequest extends FormRequest
     {
         return[
             'fullname.required' => '名前を入力してください',
-            'firstname.required' => '名前を入力してください',
             'gender.required' =>  '選択してください',
             'email.required' => 'メールアドレスを入力してください',
             'email.email' => 'メールアドレスの形式が違います。',

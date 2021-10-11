@@ -18,6 +18,9 @@ class ContactController extends Controller
     public function confirm(ContactRequest $request)
     {
         $validated = $request->validated();
+
+        
+
         $inputs = $request->all();
 
         return view('/confirm', [
@@ -30,6 +33,7 @@ class ContactController extends Controller
         if ($request->get('back')) {
             return redirect('/')->withInput();
         }
+
 
         $param=[
             'fullname'=>$request->fullname,

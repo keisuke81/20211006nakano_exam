@@ -20,11 +20,7 @@
           <div class="fullname_input">
             <div class="fullname">
               <p>{{$inputs['fullname']}}</p>
-              <input type="hidden" name="fullname" class="lastname_input" value="{{$inputs['fullname']}}">
-            </div>
-            <div class="firstname">
-              <p>{{$inputs['firstname']}}</p>
-              <input type="hidden" name="firstname" class="firstname_input" value="{{$inputs['firstname']}}">
+              <input type="hidden" name="fullname" class="fullname_input" value="{{$inputs['fullname']}}">
             </div>
           </div>
         </td>
@@ -34,7 +30,13 @@
         <th>性別</th>
         <td>
           <div class="gender_input">
-            <p>{{$inputs['gender']}}</p>
+            <?php
+            if ($_POST['gender'] === "1") {
+              echo '男性';
+            } else {
+              echo '女性';
+            }
+            ?>
             <div>
               <input type="hidden" id="male" name="gender" class="radio" value="{{$inputs['gender']}}">
             </div>
