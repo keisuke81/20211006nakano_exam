@@ -16,7 +16,10 @@
         <label for="fullname">お名前</label>
         <input type="text" name="fullname">
         <label for="gender">性別</label>
+        <script>
 
+        </script>
+        <input type="radio" name="gender" id="all" value="3,2" checked>全て
         <input type="radio" name="gender" id="male" value="1" />男性
         <input type="radio" name="gender" id="female" value="2" />女性
       </div>
