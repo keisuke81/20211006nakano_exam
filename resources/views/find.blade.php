@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <title>Contact</title>
 </head>
@@ -46,20 +47,29 @@
   </form>
   <table>
     <tr>
-      <th>ID</th>
-      <th>お名前</th>
-      <th>性別</th>
-      <th>メールアドレス</th>
-      <th>ご意見</th>
+      <th style="width:5%">ID</th>
+      <th style="width:25%">お名前</th>
+      <th style="width:5%">性別</th>
+      <th style="width:25%">メールアドレス</th>
+      <th style="width:40%">ご意見</th>
     </tr>
     @if(isset($items))
     @foreach($items as $item)
     <tr>
-      <td>{{$item->id}}</td>
-      <td>{{$item->fullname}}</td>
-      <td>{{$item->gender}}</td>
-      <td>{{$item->email}}</td>
-      <td>{{$item->opinion}}</td>
+      <td style="width:5%">{{$item->id}}</td>
+      <td style="width:25%">{{$item->fullname}}</td>
+      <td style="width:5%" class="gender">
+        <?php
+        if ($item->gender === 1) {
+          echo '男性';
+        } else {
+          echo '女性';
+        }
+
+        ?>
+      </td>
+      <td style="width:25%">{{$item->email}}</td>
+      <td class="text_overflow" style="width:40%">{{$item->opinion}}</td>
     </tr>
     @endforeach
     @endif
@@ -69,7 +79,35 @@
 
 </html>
 
-<style>
+
+
+<script>
+  $(function() {
+    var count = 25;
+    $('.text_overflow').each(function() {
+      var thisText = $(this).text();
+      var textLength = thisText.length;
+      if (textLength > count) {
+        var showText = thisText.substring(0, count);
+        var hideText = thisText.substring(count, textLength);
+        var insertText = showText;
+        insertText += '<span class="hide">' + hideText + '</span>';
+        insertText += '<span class="omit">…</span>';
+        insertText += '<a href="" class="more">もっと見る</a>';
+        $(this).html(insertText);
+      };
+    });
+    $('.text_overflow .hide').hide();
+    $('.text_overflow .more').hover(function() {
+      $(this).hide()
+        .prev('.omit').hide()
+        .prev('.hide').fadeIn();
+      return false;
+    });
+  });
+</script>
+
+<style scoped>
   body {
     width: 100%;
   }
@@ -78,9 +116,6 @@
     width: 100%;
   }
 
-  .search_form {
-    margin: 0 auto;
-  }
 
   .btn_search,
   .btn_reset {
@@ -88,12 +123,24 @@
   }
 
   table {
-    table-layout: fixed;
+    width: 100%;
+    font-size: 80%;
   }
 
-  td {
+  th {
+    width: 50px;
+  }
+
+  tr {
+    display: flex;
+  }
+
+  .text_overflow {
     overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 10px;
+    width: 400px;
+    line-height: 1.0;
     white-space: nowrap;
+    text-overflow: ellipsis;
   }
 </style>
