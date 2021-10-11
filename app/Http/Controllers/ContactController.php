@@ -48,7 +48,41 @@ class ContactController extends Controller
         Contact::create($request->all());
 
         return view('thanks');
-
-
     }
+    
+    public function find()
+    {
+        return view('find');
+    }
+
+    public function search(Request $request)
+    {
+        $query = Contact::query();
+
+        $keyword_fullname = $request->input('fullname');
+        $keyword_gender  = $request->input('gender');
+        $keyword_email   = $request->input('email');
+        $keyword_from    = $request->input('from');
+        $keyword_until    = $request->input('until');
+
+        if(!empty($keyword_fullname)){
+            $query->where('fullname','like', '%' . $keyword_fullname . '%');
+        }
+        if(!empty($keyword_gender)){
+            $query->where('gender', 'like', '%' . $keyword_gender . '%');
+        }
+        if(!empty($keyword_email)){
+            $query->where('email', 'like', '%' . $keyword_email . '%');
+        }
+        if (!empty($keyword_from) && !empty($keyword_until)) {
+            $query = Contact::whereBetween('created_at', [$keyword_from, $keyword_until]);
+    }
+
+    $items = $query->get();
+    return view('find', compact('items'));
+    }
+
+
 }
+
+
