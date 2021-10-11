@@ -9,30 +9,37 @@
 
 <body>
   <h1 class="admin_title">管理システム</h1>
-  <form  action="find" method="get">
-    @csrf
-    <div class="name_gender_search">
-      <label for="fullname">お名前</label>
-      <input type="text" name="fullname">
-      <label for="gender">性別</label>
-      <input type="radio" name="gender" id="male" value="1" />男性
-      <input type="radio" name="gender" id="female" value="2" />女性
-    </div>
-    <div class="created_at_search">
-      <label for="created_at">登録日</label>
-      <input type="date" name="from">
-      <span>~</span>
-      <input type="date" name="until">
-    </div>
+  <div class="search_form">
+    <form action="find" method="get" class="admin_search">
+      @csrf
+      <div class="name_gender_search">
+        <label for="fullname">お名前</label>
+        <input type="text" name="fullname">
+        <label for="gender">性別</label>
 
-    <div class="email_search">
-      <label for="email">メールアドレス</label>
-      <input type="email" name="email">
-    </div>
+        <input type="radio" name="gender" id="male" value="1" />男性
+        <input type="radio" name="gender" id="female" value="2" />女性
+      </div>
+      <div class="created_at_search">
+        <label for="created_at">登録日</label>
+        <input type="date" name="from">
+        <span>~</span>
+        <input type="date" name="until">
+      </div>
 
-    <div class="btn_search">
-      <input type="submit" value="検索">
-    </div>
+      <div class="email_search">
+        <label for="email">メールアドレス</label>
+        <input type="email" name="email">
+      </div>
+
+      <div class="btn_search">
+        <input type="submit" value="検索">
+      </div>
+      <div class="btn_reset">
+        <a href="find">リセットする</a>
+      </div>
+  </div>
+
   </form>
   <table>
     <tr>
@@ -62,5 +69,28 @@
 <style>
   body {
     width: 100%;
+  }
+
+  .admin_search {
+    width: 100%;
+  }
+
+  .search_form {
+    margin: 0 auto;
+  }
+
+  .btn_search,
+  .btn_reset {
+    text-align: center;
+  }
+
+  table {
+    table-layout: fixed;
+  }
+
+  td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 </style>
