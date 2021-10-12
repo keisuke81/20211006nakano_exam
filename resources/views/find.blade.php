@@ -47,7 +47,7 @@
 
   </form>
 
-  {{$items->links()}}
+  {{$items->links('pagination::tailwind')}}
   <table class="table">
     <tr>
       <th id="t_id" style="width:5%">ID</th>
