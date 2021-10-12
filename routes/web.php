@@ -18,8 +18,8 @@ use App\Http\Requests\ContactRequest;
 Route::get('/', [ContactController::class,'index'])->name('contact.index');
 Route::post('/confirm',[ContactController::class,'confirm'])->name('contact.confirm');
 Route::post('/thanks', [ContactController::class, 'create']);
-Route::get('find',[ContactController::class, 'find']);
+Route::get('find',[ContactController::class, 'find'])->name('contact.find');
 Route::get('find',[ContactController::class, 'search']);
-Route::post('/todo/delete', [ContactController::class, 'delete'])->name('contact.delete');
+Route::post('/delete', [ContactController::class, 'delete'])->name('contact.delete');
 
 

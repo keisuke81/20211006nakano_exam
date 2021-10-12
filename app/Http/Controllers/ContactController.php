@@ -52,7 +52,7 @@ class ContactController extends Controller
     
     public function find()
     {
-        return view('find');
+      return view('find');
     }
 
     public function search(Request $request)
@@ -80,10 +80,10 @@ class ContactController extends Controller
         }
         if (!empty($keyword_from) && !empty($keyword_until)) {
             $query = Contact::whereBetween('created_at', [$keyword_from, $keyword_until]);
-    }
+        }
 
-    $items = $query->get();
-    return view('find', compact('items'));
+        $items = $query->paginate(10);
+        return view('find', compact('items'));
     }
 
     public function delete(Request $request)
