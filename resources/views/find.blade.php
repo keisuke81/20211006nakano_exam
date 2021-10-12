@@ -43,9 +43,8 @@
       <div class="btn_reset">
         <a href="find">リセットする</a>
       </div>
+    </form>
   </div>
-
-  </form>
 
   {{$items->links('pagination::tailwind')}}
   <table class="table">
@@ -119,11 +118,12 @@
 
 <style scoped>
   body {
-    width: 100%;
+    width: 80%;
   }
 
   .admin_search {
     width: 100%;
+    margin: 20px 50px;
   }
 
   .search_all {
@@ -212,5 +212,11 @@
     /*paginateメソッドの矢印の大きさ調整のために追加*/
     width: 30px;
     height: 30px;
+  }
+
+  .search_form,
+  .table{
+    margin-left:30px;
+    margin-right:30px;
   }
 </style>

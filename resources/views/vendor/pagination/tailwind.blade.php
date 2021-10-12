@@ -98,3 +98,15 @@
     </div>
 </nav>
 @endif
+
+
+<style>
+    .rounded-md {
+        float: right;
+        margin-right: 30px;
+        margin-left: 30px;
+        font-size: 80%;
+    }
+
+
+</style>
