@@ -12,9 +12,9 @@
 <body>
   <h1>お問い合わせ</h1>
   @if($errors->any())
-   @foreach($errors->all() as $error)
-   @endforeach
-  @endif 
+  @foreach($errors->all() as $error)
+  @endforeach
+  @endif
   <form action="confirm" method="post">
     @csrf
     <table class="contact_form">
@@ -69,8 +69,8 @@
               <input type="text" name="postcode" class="input" value="{{old('postcode')}}" onkeyup="AjaxZip3.zip2addr(this,'','address','address');">
             </div>
             <p class=" exa">例)123−4567</p>
-              <p class="error">{{$errors->first('postcode')}}</p>
-            </div>
+            <p class="error">{{$errors->first('postcode')}}</p>
+          </div>
         </td>
       </tr>
       <!--住所-->
@@ -78,7 +78,7 @@
         <th>住所<span class="req">※</span></th>
         <td>
           <div class="address_input">
-            <input type="text" name="address" class="input" value="{{old('address')}}" >
+            <input type="text" name="address" class="input" value="{{old('address')}}">
             <p class="exa">例)東京都渋谷区千駄ヶ谷1-2-3</p>
             <p class="error">{{$errors->first('address')}}</p>
           </div>

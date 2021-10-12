@@ -10,7 +10,7 @@
 <body>
   <p class="thanks_message">ご意見いただきありがとうございました。</p>
 　<div class="toppage">
-   <button class="btn_toppage" onclick="location.href='/'">トップページ</button>
+   <button class="btn_toppage">トップページ</button>
   </div>
 
 </body>
