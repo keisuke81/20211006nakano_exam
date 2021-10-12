@@ -20,5 +20,6 @@ Route::post('/confirm',[ContactController::class,'confirm'])->name('contact.conf
 Route::post('/thanks', [ContactController::class, 'create']);
 Route::get('find',[ContactController::class, 'find']);
 Route::get('find',[ContactController::class, 'search']);
+Route::post('/todo/delete', [ContactController::class, 'delete'])->name('contact.delete');
 
 

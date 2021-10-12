@@ -86,7 +86,15 @@ class ContactController extends Controller
     return view('find', compact('items'));
     }
 
-
+    public function delete(Request $request)
+    {
+        Contact::find($request->id)->delete();
+        return redirect('/find');
+    }
 }
+
+
+
+
 
 

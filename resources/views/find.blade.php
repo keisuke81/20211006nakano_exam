@@ -46,7 +46,6 @@
 
   </form>
   <div class="search_result">
-    <form action="find" method="post">
       <table class="table">
         <tr>
           <th id="t_id" style="width:5%">ID</th>
@@ -73,13 +72,17 @@
           </td>
           <td id="t_email" style="width:20%">{{$item->email}}</td>
           <td id="t_opinion" class="text_overflow" style="width:40%">{{$item->opinion}}</td>
-          <td id="t_delete" class="btn_delete" style="width:10%"><button>削除</button></td>
-
+          @csrf
+          <td id="t_delete" class="btn_delete" style="width:10%">
+            <form action="{{ route('contact.delete', ['id' => $item->id]) }}" method="post">
+              @csrf
+              <button class="button-delete">削除</button>
+            </form>">
+          </td>
         </tr>
         @endforeach
         @endif
       </table>
-    </form>
   </div>
 </body>
 
@@ -146,7 +149,8 @@
   tr {
     display: flex;
   }
-  td{
+
+  td {
     display: inline-block;
     text-align: left;
   }
@@ -160,7 +164,7 @@
     text-overflow: ellipsis;
   }
 
-  .btn_delete{
+  .btn_delete {
     display: inline-block;
     text-align: left;
   }
